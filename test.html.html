@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة خاصة بممثلي الجامعات العراقية لحساب الأرباح</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            max-width: 300px;
+            text-align: center;
+        }
+        input[type="number"], input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>صفحة خاصة بممثلي الجامعات العراقية لحساب الرواتب المعطاة من قبل صفحة <br> Print university of technology</h2>
+
+        <input type="number" id="inputNumber" placeholder="أدخل عدد صفحات الملزمة هنا">
+        <input type="number" id="copies" placeholder="عدد النسخ">
+        <button onclick="calculate()">احسب</button>
+        <input type="text" id="result" placeholder="الربح" readonly>
+    </div>
+
+    <script>
+        function calculate() {
+            const inputNumber = parseFloat(document.getElementById("inputNumber").value);
+            const copies = parseFloat(document.getElementById("copies").value);
+
+            if (!isNaN(inputNumber) && !isNaN(copies)) {
+                const intermediateResult = inputNumber * 55;
+                const finalResult = intermediateResult * copies;
+                document.getElementById("result").value = finalResult.toLocaleString();
+            } else {
+                document.getElementById("result").value = "يرجى إدخال الأرقام في الحقول.";
+            }
+        }
+    </script>
+</body>
+</html>
